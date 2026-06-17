@@ -1,0 +1,119 @@
+[00:24 - 00:29] r01: Well, let's jump right into it. What do you think about the tasks you just did?
+[00:31 - 00:38] t07: I think 1B was really hard. I don't know, I can't remember the wording now.
+[00:38 - 00:39] r01: What made it hard?
+[00:39 - 01:09] t07: I just think I didn't understand the wording. And then like, yeah, serialize. There were a lot of files. I didn't know where to go. And then I think I prompted my Claude. Not Code, but just the regular one. And it totally drove me crazy for an hour. And then I realized it was completely crazy when it asked me to change your test, and then I thought, let's revert back and find a better way, and then it went better.
+[01:12 - 01:15] r01: So it was about getting an overview of the code or what?
+[01:15 - 01:18] t07: I think it was just understanding the task. That was the problem.
+[01:19 - 01:21] r01: Okay, and Claude didn't understand it either?
+[01:21 - 01:27] t07: No, Claude didn't understand it either. The first time. But it did after it was just whipped a little more.
+[01:30 - 01:41] t09: I would say that the tasks were very clearly defined. Because I straight up just copy paste into Claude. Hey Claude, I've got this task. Go. And then it solved it for me.
+[01:43 - 01:44] t10: What?
+[01:44 - 01:59] t09: And then it just did it. So in that way they were very much like... The thing about there being acceptance criteria. That was good. That's good for an AI. Because then it's like, check, check, check, and your tests also fit, check.
+[02:02 - 02:03] t06: I had the same experience.
+[02:03 - 02:09] t10: I have a plus one on t07, that is. That GitHub Copilot there.
+[02:09 - 02:11] t07: The others were just fine. Only 1B was...
+[02:13 - 02:30] t10: It was a bit long compared to the others. I could have used a little more time sitting down and looking at the code before I started the task. And understanding the context. Yes, maybe I'm a little too inclined to just trust some AI that you haven't spent enough money on.
+[02:36 - 02:46] r01: Can you explain a little bit about how ArchLens was part of your development? I mean, something like when you opened it up and why?
+[02:48 - 03:08] t08: Mine was a little delayed because I had to push it first, and then I had to check it from another computer. But I used it precisely because I was in doubt about, okay, we have these models, we had a domain and infra and app. And then I started using that logger, and then I could see that there are some things here that are starting to cause problems. And then I used it to just double-check.
+[03:08 - 03:10] r01: What do you mean it started to cause problems?
+[03:10 - 03:42] t08: So I made a... you know you had to make the logger in Infra, and then you had to use that deserialize thing. And then it became like a dependency on Infra, and I'm not allowed to be, so I used it to double-check. Okay, there's a dependency now that's going the wrong way, so I just moved that deserializer out of the domain, for example. Then there were no errors in it. So I used it as a kind of result to see, okay it still looks right, instead of having to sit around and hunt those down myself.
+[03:42 - 03:44] r01: But you had a feeling about it before?
+[03:44 - 03:57] t08: Yeah, I just used it to double-check. It's easier than having to sit around and double-check that it's actually there. But that's because I haven't done much clean architecture, so I had to think about which way they were pointing.
+[03:57 - 04:12] t10: Yes, I agree. I also used it all the time when I wrote some code or did something new in a different class than the one I had just worked in, to see, okay, did I make some dependency that I hadn't thought of, or was there something? Yes, there was a couple of times.
+[04:12 - 04:14] r01: Did you have it open all the time?
+[04:14 - 04:31] t10: Yes, it's a bit like that, because my VS Code wasn't that big, so I had a lot of windows, so I kept closing it and then opening it again. And then sometimes I would compare it to the base branch to just see if there was supposed to be one here.
+[04:32 - 05:07] t06: I did that too now, after each task I went to the other PC, pulled down the branch and then I just looked, looked a lot at this remote branch diff so you could see what was new in that commit where there was a new dependency and see if it works right and then, yes, that's what I used it for anyway. That rough UI I would like to have, you could... I think at least hot reload or something. So while you're sitting and developing, I think I used it more.
+[05:07 - 05:09] r01: Yes. What about you?
+[05:09 - 05:40] t09: It's the same. Every time you had solved a task, now I've also used Claude to solve them, so it was a little more to keep an eye on, okay, are the dependencies so... Which ones have you added? Added the ones that I expected it to add? And did it violate the dependency policy? I only discovered the dependency policy a little later, so I had to go back and be like, did I violate it earlier?
+[05:43 - 05:46] t07: I don't think I discovered a dependency policy, I would say. It sounds a little strange. I think a lot of lines came up, but I didn't really think about it. Maybe they shouldn't point to those things now.
+[06:00 - 06:01] t09: I also discovered it a little too late.
+[06:01 - 06:09] r01: Yes, because now we're talking a lot about architecture. What prompts you to think so much about it?
+[06:09 - 06:27] t06: Read the specs. Just make it read the README, make it read the how-to-make. And then have them in the context all the time. And then give it like tasks. After a task is compacted, so you still remember those two pre-injected MDs there.
+[06:27 - 06:30] r01: Okay, so you gave it?
+[06:30 - 06:48] t06: I compacted it between the tasks all the time, so it became task specific. But so I didn't have to fill it in every single time with those two MDs there. And then say, we're going to make the new two. And then it was written up in a nice way. So it was very spec.
+[06:50 - 06:51] t09: It was smart to give it.
+[06:52 - 06:54] r01: Do you want to do it normally, so give it...
+[06:58 - 07:04] t06: I also made a Claude init file, so that it kind of...
+[07:04 - 07:04] t08: Hahaha, so it was all Claude
+[07:06 - 07:56] t06: I started by saying, read these two, and then explain to it what we're going to do now. We're going to do these tasks. I made an init file based on that, and I just started feeding it sequentially, what's it called, the tasks. And then change branches. So I didn't really make a real branching strategy, but... What can you do. I don't even know those git commands. I also have it on my Claude, I can show it here, because it's a lot of context management, so on my Claude, now I just have to show it here. There I have something like blah blah blah. There I can see when it fills up the context window down there, I've kept it below 50% the whole time And then I compacted it there. So it wouldn't be silly. So it wouldn't be silly. Allegedly, allegedly
+[07:56 - 08:00] r01: Why did you guys bother to adhere to the architecture?
+[08:04 - 08:05] t08: That's what it says there, we see.
+[08:06 - 08:09] r01: Yes, in the README.
+[08:09 - 08:11] t06: So the branching strategy, or what are we talking about?
+[08:11 - 08:20] r01: Yes, we're talking about the architecture. Because you talk a lot about adhering to the architecture, but...
+[08:20 - 08:31] t08: You've described it, so I thought, so... And it said policy right, so I said... If it wasn't in there, I wouldn't have thought about it, I guess. So I would have just... Driven off and just made it work, and not really thought about...
+[08:31 - 08:31] r01: Yes.
+[08:32 - 08:32] t08: Yes.
+[08:33 - 08:33] r01: Okay.
+[08:33 - 08:38] t08: But there were also pictures and stuff, okay, and this one only has to know about this one, and this one only has to know about this one, then you're kind of okay.
+[08:39 - 08:39] r01: Okay.
+[08:39 - 08:44] t08: Now I probably shouldn't really destroy it. Even if no one notices it.
+[08:45 - 09:01] t09: Yes, you would do that in reality, if you were to contribute to some open source code, it won't be merged if you don't follow the rules that they've set up. Yes.
+[09:01 - 09:18] r01: Okay. Yes. Cool. Were there any times when you chose not to use ArchLens? Or when you didn't find it helpful? What were those situations?
+[09:18 - 09:46] t06: Mid-development it didn't really make sense to me. I don't think I would have used it either, even though I had it on the PC. I don't think I would... Now I say I wanted hot reload, but I feel like it's a bit more like you can sit back and look at, okay, I mean, I maintain these architectures, what's it called, principles. And otherwise you can go in and look more, but I don't think I would look at it while I'm sitting there developing.
+[09:47 - 09:47] r01: No.
+[09:47 - 09:49] t06: I think it's more of a review for me.
+[09:51 - 09:56] t09: Agreed. Also, I didn't use it to understand the codebase at all.
+[10:02 - 10:10] t07: Yes, I would also say plus one on that one. It was also always when I finished a task. Now I just have to remember to go in and look here. Look where I had made new arrows.
+[10:10 - 10:19] r01: But when you discovered the new arrows. Did you revisit it, or were you like... I have one more task, I have to get to it?
+[10:20 - 10:30] t09: If there was an arrow that wasn't supposed to be there. Then you went back and fixed it. Or at least that's what I did... It wasn't that good, move on.
+[10:30 - 10:30] t08: I was so busy.
+[10:30 - 10:31] t07: That's the strategy I've taken.
+[10:32 - 10:38] SPEAKERS: (Muffled talk)
+[10:38 - 10:45] t10: When you saw that arrow that wasn't exactly between the two right ones. I was like, okay shit, now I've done something.
+[10:47 - 10:53] r01: How did you feel about it not being forced, that you're not allowed to do that arrow for example?
+[10:53 - 10:54] t09: What do you mean?
+[10:54 - 10:59] r01: So that it might have... made a compile error
+[10:59 - 11:03] t09: But I think maybe I could have done it better, because my code might have been a little cleaner. If it had just said no, you're not allowed to do this.
+[11:04 - 11:08] t08: I think it would be great if it was part of the suite. I can see that you're saying to a pull request, you can't do that
+[11:10 - 11:13] t10: It would be great if it was an automatic check when you write the code.
+[11:13 - 11:16] t07: Yes, a linter or something like that
+[11:16 - 11:17] t09: Definitely
+[11:21 - 11:30] t06: I'm just sitting there thinking fuck, that would be annoying, so when you're sitting there and you have to push something, and then those arrows come up. It's like... Fuck
+[11:30 - 11:39] t09: Either it does it, or your senior does it. Better that someone protects you before someone shames you.
+[11:39 - 11:39] t06: Really.
+[11:41 - 11:52] r01: Um, did it also change your way of thinking about the Dependency policy, or did it mainly just confirm something you already knew.
+[11:52 - 11:52] t06: ArchLens, then.
+[11:53 - 11:55] r01: Yes, using ArchLens.
+[11:55 - 12:10] t08: That confirmed it for me. I knew what it was about before, but it's hard to visualize it sometimes. Then you kind of have to look through some files and check oh fuck did I call application inside the domain somewhere. Then it's easier to just see an arrow.
+[12:12 - 12:23] t09: 100%. Also in a time when AI is being used more and more to code, it's nice to say bro, you've fucked up.
+[12:23 - 12:37] r01: But it's also, as you mentioned earlier, that you used Claude, and then you checked Claude's work with ArchLens. Did you feel like you looked at the code the most, or did you feel like you looked at ArchLens the most?
+[12:39 - 12:56] t09: I looked at the code to check the acceptance criteria, and then I used ArchLens to check the dependency policy. It looked because it's impossible to sit, okay I'm in this file, and I've imported this file. It helps a lot, just having a graph, like there's a wrong arrow there, I can see.
+[13:00 - 13:02] r01: And you didn't just think of import statements, did you?
+[13:03 - 13:13] t09: Well, I didn't look at import statements, but it's very nice to have a check like that to make sure Claude didn't hallucinate that it was supposed to import something from something it wasn't supposed to, right?
+[13:13 - 13:22] r01: Makes sense. Yes. What about the rest of you? Was it also just confirmation of something you already knew?
+[13:22 - 13:42] t10: Yes, I think so. But it was nice to have. Because often, when you're sitting by yourself, you have the idea of ​​the architecture in your head. But now it can say in black and white that you've made a mistake. It's easier than having to sit and keep track of it yourself. Or having to sit and read through a lot of files and draw a diagram yourself. What's cool is that it can just tell you in half a second that you've done something stupid.
+[13:42 - 13:53] t07: And click through those different folders. And God, where was that file, it was here. Instantly. That's a little cooler. But hot reload could be cool.
+[13:53 - 13:53] t06: Hot reload was the coolest.
+[13:53 - 13:55] t07: Instant.
+[13:56 - 14:06] t06: But more as a part of some CI/CD workflow when you push, than just something for a PR, it spits it out for a preview or something, I don't know. So you can sit and watch.
+[14:08 - 14:14] r01: Do you think it's important to adhere to the architecture of projects?
+[14:15 - 14:17] SPEAKERS: Yes... (muffled aggrement)
+[14:19 - 14:21] r01: What makes you say that?
+[14:23 - 14:40] t08: So if you use these templates, these architectures that you know, it's much easier for new developers who come in, and then you know how it works in some way. And then you can also make sure that you don't do some completely crazy things when you have these rules that we follow in the company, and everyone knows the same thing.
+[14:41 - 15:13] t07: The place where I work right now, you can't be guaranteed that a controller is a controller at all. Things like that, so it just makes it really complicated to find your way around the code base And you really have to, you really shouldn't trust that just because it has controller in the name that that's what it does. So that makes it a little more complicated, I would say. So it would have been nice if they had stuck to the rules that are in place. Yeah.
+[15:14 - 15:18] t06: Not naming any names here. There are no names. They're in the middle of merging. No.
+[15:20 - 15:22] t08: Not on tape here.
+[15:24 - 15:28] r01: No. Is this something you'd use in a real project?
+[15:30 - 15:31] t06: Then it should be part of a workflow like that.
+[15:32 - 15:38] t07: If the UI was a little nicer to look at. Because it looks a little rough.
+[15:39 - 15:39] t09: It looks like a school project.
+[15:42 - 15:43] t08: It looks like 25 people have downloaded it.
+[15:47 - 15:50] t09: 26, 27, 28, 29, 30.
+[15:53 - 16:03] t06: It could also be useful if... but then again AI, that has also been a revolution. But if you could create an abstraction layer that was also more readable for AI, that could kind of... Don't have to read all sorts of files, and all sorts of things that clutter it, if you could just get the pure graph representation spit out and then match it up against a spec or an architecture, where you have to have a convention with a name or something.
+[16:21 - 16:28] t07: That would be fucking smart. Then you could just check before you do your PR. Look, check out my...
+[16:28 - 16:29] t09: Because it has to create some kind of graph structure behind it.
+[16:29 - 16:33] t06: Yes, but it just reads so much.
+[16:33 - 16:42] t09: But if you can spit out both the UI, but also the raw data.
+[16:42 - 16:43] t07: Yes, true.
+[16:43 - 16:44] t08: Just a binary.
+[16:43 - 16:48] t06: Just a skill. A small skill.
+[16:48 - 16:49] t07: Check the architecture.
+[16:50 - 17:04] t06: I haven't been on a project for two months now, so I've just been sitting on Hacker News and reading all the different flavors of the AI.
+[17:04 - 17:27] SPEAKERS: (Loose talk unrelated to project)
+[17:27 - 17:30] r01: I was going to say, are there any other comments by the way?
+[17:32 - 17:33] t08: No, it wasn't anything productive.
+[17:33 - 17:34] r01: It wasn't any?
+[17:34 - 17:36] t06: It was nice.
+[17:36 - 17:37] t10: It was nice.
+[17:37 - 17:38] t09: It was so nice.

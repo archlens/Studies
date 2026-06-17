@@ -1,0 +1,81 @@
+[00:00 - 00:22] r01: So, this is just a casual discussion where we’re all talking together—feel free to chime in with each other, but try not to talk over each other too much at once. Otherwise, keep it very casual. First, I’d like to ask: what do you think about the tasks you just completed? Just a general impression. Were they hard, easy, confusing? Did it make sense?
+[00:24 - 00:46] t05: I think it was maybe a little hard to figure out what I was actually doing. I didn’t have an overview of what the project was really about, so it was like, do this, then it’s like that, okay. So in that way, it was a little hard to know, or if I’d known a bit more about what the end goal was, it might have been easier for me to understand.
+[00:49 - 01:01] t02: I also think it could be a little hard to find your way around the folders sometimes. You had to spend a little time figuring out where things actually were so you could figure out where to go. It mainly described where to place the new classes, but if you needed to make changes, you had to search a bit.
+[01:04 - 01:16] t04: I also noticed that you were supposed to place them where it made sense, and not where it was convenient, when you had the choice yourself. I also found that a bit difficult when you didn’t really have an overview of, what exactly am I doing? Where does this actually belong?
+[01:18 - 01:24] r01: I know it’s already a bit out of the way. You have some specific... Like, just think about it.
+[01:25 - 01:26] t04: So, in relation to this, or just in general?
+[01:28 - 01:33] r01: Specifically in relation to these tasks, was there something that said that?
+[01:34 - 01:52] t04: Yeah, well, the only one I got to where I had a choice was number two. But I actually think it made sense in terms of what it was supposed to be used for, which class was supposed to use it, and where it was supposed to go. So it was actually fine to figure out when you read through it. But I kind of noticed that I was thinking about it while I was doing it.
+[01:52 - 02:06] t02: I also asked the co-pilot and was like, does it actually make sense to put this here in relation to what else is there, because it can kind of scan through the whole thing.
+[02:06 - 02:07] r01: Yeah. What did it say?
+[02:07 - 02:09] t02: It said it made sense.
+[02:10 - 02:21] t04: I also think that when I ran ArchLens afterward, I could see that I hadn’t created a jumble of lines afterward, but that it actually stayed pretty much... I mean, it actually stayed the same, so I was also reassured that it was probably safe to place it there. Yeah.
+[02:21 - 02:24] r01: Cool. Yeah, what about the rest of you?
+[02:25 - 03:44] t01: There was a point, and I don’t know if I missed something, but there was a point where I was a little confused because it said—it was just stated specifically—and that’s also what I asked about, which you couldn’t answer. So that log file there, it’s supposed to be in that subfolder, but then there’s another file in the domain that needs to use it. I can’t do both at once, so I just did what’s in the requirements, I think. Then I just ignored that readme file. And then there was also what the others were talking about regarding the overview. I was a bit lacking in that area a couple of times, like when there was—I can’t remember what the object was called now—but it was some kind of sealed local class that I moved over to another script; I think it was private too, and I had to make it public because it was going to be used in another file. This probably works fine, but there were just all kinds of alarm bells going off in my head, and I was thinking, “A BDSA instructor wouldn’t think this was very good.” Because I didn’t really have a clear understanding of how this might affect things. But I didn’t have enough context to understand why that class was private. Besides, it’s just good practice to keep things private if they aren’t going to be used by others. But since others were going to use it, I made it public.
+[03:44 - 03:47] r01: Okay, yeah. Did you check with ArchLens afterward?
+[03:48 - 03:59] t01: No, I didn’t use ArchLens at all during the whole... But that was also because I already knew from the first assignment that I’d broken one of those dependencies, so I was like, that’s fine.
+[04:00 - 04:01] r01: What about you?
+[04:01 - 04:37] t03: I thought it was really hard to keep track of where I was. And like you said, knowing what I was actually doing. It was also very hard to know where things were going, because I needed an overview. So it took me a really long time with the first assignment just to get a handle on things and stuff like that. But I feel like, when I read through the stuff, the issues you’d created were really well done. It was just that I also needed to get the code so I could create the issue.
+[04:37 - 04:49] t02: I actually think those issues were described well, too. They were very simple and to the point, and it was nice to have the criteria and things like that. Sometimes there are criteria, but other times it just says, “Do this,” and that’s all.
+[04:49 - 05:06] t05: I got pretty confused on the third one. I think I probably should have asked, but I actually didn’t end up really understanding what it was you were supposed to do, I think. Yeah, I don’t know. It could be that I was... There was one thing I hadn’t read properly, which I then fixed, but I was still confused afterward.
+[05:08 - 05:08] r01: Understandable.
+[05:08 - 05:23] t04: I was a little confused too, but it finally clicked what I was supposed to do. I was particularly stumped by that newly implemented snapshot in some function or something, but I hadn’t implemented any until I finished reading the assignment, and I was like, ah, okay, that’s how you use it.
+[05:26 - 05:42] r01: Cool. Well, that kind of leads into question two, which is: can you describe how you used ArchLens in your development, and when and why you checked? If you did?
+[05:44 - 06:06] t04: I used it consistently every time I finished a sub-task or task. Just to verify how the architecture had changed with the changes I’d made. And then I also realized I’d created a dependency violation in task 1. But I couldn’t quite figure out how to fix it, so it stayed that way. But do keep that in mind as well.
+[06:06 - 06:14] t02: Yeah, I would have done that too.
+[06:14 - 06:21] t05: I think I got a little caught up in passing the tests. Yeah.
+[06:21 - 06:25] r01: Okay. So you didn’t open ArchLens otherwise?
+[06:26 - 06:34] t05: In the end, I realized it was a mess. Yeah, so I didn’t have time to fix it.
+[06:36 - 06:56] t02: I also prompted my co-pilot to read the README. So when I asked it about things, it was kind of implied that it had to follow that. I just checked the questionnaire, and it looked pretty good aside from that one dependency in assignment 1. But I completely forgot about it. I was also totally caught up in just getting through it.
+[07:00 - 07:00] r01: What about you?
+[07:00 - 07:17] t03: Yeah, well, I saw it at the beginning when you were doing that part where we had to look at the graph, and then I kind of forgot about it while I was working on the tasks. I think I did it once in Task 1, and then I completely forgot about it. I was just trying to get that logger to work.
+[07:18 - 07:44] r01: Okay. I also feel like this might answer question 3 a bit, but I mean situations where you chose not to use ArchLens, and where it didn’t help. And as I hear it, it was kind of like, once you’d already implemented it, you’d open it up and then say, “I don’t have time to change that.” Or what?
+[07:44 - 07:46] t05: Yeah, that was probably it.
+[07:48 - 07:48] r01: Yeah.
+[07:53 - 07:58] t01: It was just me who chose to say that the part in the README isn’t really that important for us to do.
+[08:02 - 08:05] t02: It didn’t say in the README that you had to use it. Didn’t it just say you could?
+[08:05 - 08:20] t01: No, it just said there couldn’t be any dependencies between... The domain couldn’t depend on anything outside of it, but in Assignment 1 you were kind of forced to do it if you were going to follow the requirement you’d been given. And so I was kind of like...
+[08:21 - 08:22] t05: There’s something in the README that’s wrong.
+[08:22 - 08:31] t01: Either I’m really stupid, or this just isn’t possible. It’s not possible, so I just kept going.
+[08:32 - 08:40] r01: Okay. But t02, you asked Co-Pilot to use the readme, but you didn’t use ArchLens. No. Okay.
+[08:41 - 08:52] t02: There was a moment where I was a little scared, and I was like... Yeah. Well. It’s not that bad.
+[09:01 - 09:13] r01: Would you use something like ArchLens in a real project? How do you actually understand ArchLens as it is right now?
+[09:13 - 09:49] t04: Well, I used it as part of my pipeline, so I run my test, build the project, and then open ArchLens to see the difference between the main branch and what I’ve built, as a sanity check. Both to see if it complied with the current policy for dependencies, but also, for example, if I’ve changed how tightly coupled it is. So what changes does that introduce here in the architecture. So for me, it was very much a post-pipeline thing, like a final check.
+[09:50 - 10:43] t05: I could imagine it being very useful if you could somehow set up some rules for what it defines... It builds the tree; you could say that if it created an arrow from here to here, then it fails your workflow, and you can’t merge. Then you’re guaranteed to keep your clean code or something like that. So I think that’s pretty cool. Generally, I’m probably a bit like that—if it’s not the actual content of the code where you’re doing something weird, then those kinds of rules should fail on workflows. Otherwise, you can’t really enforce them. For example, something like unused imports. If you don’t have a workflow that checks for that, it’ll still end up in your code. No one’s going to sit there and check it manually.
+[10:43 - 10:43] r01: No.
+[10:44 - 10:45] t05: In that sense, it could be pretty smart.
+[10:46 - 10:46] r01: Yeah.
+[10:47 - 11:07] t02: I really like the idea of having something visual, because otherwise I wouldn’t even think about it... I mean, it would be too overwhelming to even be able to... At least that’s how I feel if you just have to sit there and clean up folders and stuff like that. I didn’t end up using it because I forgot about it. If I had thought about it, I actually think it could have been pretty helpful. Yeah.
+[11:07 - 11:14] t03: I feel that if I had this in BDSA, it would have helped my understanding a lot.
+[11:16 - 11:27] t02: If you’re working on a project where it’s important, at least, that the architecture is a certain way. It should be, of course. But if it’s extra important, then I think it could be very good.
+[11:27 - 11:29] r01: What do you mean by “it should be a bit like that”?
+[11:29 - 11:36] t02: It’s just something you always have to think about. I definitely feel like it’s something that’s been drilled into my head at SWU.
+[11:36 - 11:39] t01: You’re in for a shock when you enter the workforce.
+[11:39 - 11:52] t02: That’s probably also a bit my... I haven’t worked yet, so... But I haven’t encountered anything else so far. There has to be some kind of thought behind it, even if it might not adhere to the different types.
+[11:53 - 11:58] r01: What do you actually think it was that made you forget to use it?
+[12:00 - 12:04] t03: Absorbed by the assignments. And time.
+[12:04 - 12:23] t02: I think I’m just used to testing. So there was a test, and I’m used to using .NET. That’s just what I did. It’s what I usually do. If it had errors, or it didn’t build, then I was like... I just think it’s because I’m not used to using it, that there was an extra step in the process.
+[12:23 - 12:29] r02: Kind of like t05 says, if it had been part of the pipeline, so to speak, when you run the tests, it would have complained too. Would you have noticed it more?
+[12:29 - 12:34] t02: Yeah. Or if there was something in the acceptance criteria where it was like, “You can’t do this.” Yeah. Or maybe that’s a bit too harsh.
+[12:36 - 12:40] r01: What if it had just been warnings? Do you think it would have failed?
+[12:41 - 12:42] t02: I had tons of warnings.
+[12:45 - 12:54] t05: I mean, if warnings can be ignored, then I guess... I don’t know. So either you suppress them, or it fails on a warning. That’s kind of how I see it.
+[12:54 - 13:02] t04: If you’re running a pipeline remotely, no one’s actually reading the log output from it—I certainly don’t, unless it’s failed.
+[13:03 - 13:07] r01: Okay, cool. Any other comments you’d like to share?
+[13:11 - 13:32] t05: I think it would be cool if it could output it in a text format. It might also be that this is how I usually run things, but I don’t normally have a GUI like that, so if you could just get it to print out text, then I wouldn’t have to leave where I’m sitting and working. But it’s also...
+[13:32 - 13:34] r02: If you’re also saying that you’re a Vim guy, then...
+[13:34 - 13:35] t05: Sorry.
+[13:35 - 13:36] r02: No, no, but that’s a good perspective.
+[13:36 - 13:45] r01: So would it be that when you build it, you run a command, and then it gives you some output?
+[13:46 - 14:00] t05: Yes, it would be a command, and then it runs and produces an output. Kind of like the other thing, just in a terminal. I actually think that if you already have the structure, I think it’s pretty easy to do without knowing anything about it.
+[14:01 - 14:06] r01: That was the whole research project. What were you about to say?
+[14:06 - 14:15] t04: I just remembered that I also used it at the beginning. Just to check—does it actually look like what you described in the README the first time I looked at it?
+[14:16 - 14:17] r01: Did it?
+[14:17 - 14:24] t04: I think so. I certainly didn’t notice it. But it wasn’t like I was looking for it—I was just skimming through it.
+[14:26 - 14:56] t05: Can you see it now... Well, I didn’t get to use it, so I don’t know. Can you see it like that... I only got to see the overall graph for Application, Infra, and Domain, but that dependency—if there’s one going from Domain to Infra—I know there’s a dependency, but I don’t know exactly where that dependency comes from. Can you click on it and see exactly where it comes from? That dependency?
+[14:56 - 14:57] r01: Yes, you can.
+[14:57 - 14:58] t05: Cool! More of that, then.
+[14:58 - 14:59] t03: That would have been useful.
+[14:59 - 15:01] t04: Nice! I hadn’t noticed that either.
+[15:02 - 15:05] r01: No. Alright. Well, I think...
+[15:05 - 15:11] r02: It’s 29. So that’s... Right on time. We’re wrapping up here. Yeah.

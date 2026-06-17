@@ -1,0 +1,120 @@
+[00:03 - 00:15] r01: That's it. Alright. Well, would you like to put some thoughts on those, or some words on the tasks you just did? What do you think about them?
+[00:16 - 00:26] c09: There are some that are significantly easier than others. But I also think there was a little cheating in terms of how we best maintain... Do you want it in Danish or English?
+[00:27 - 00:28] r01: Danish is fine.
+[00:29 - 00:44] c09: How do you best maintain the current architecture, because I was... at a point when I started having references from application to infrastructure, where I was like, mmm, I'm cooked. That's probably fine, bang! And then I went back at some point and saw that it probably wasn't fine.
+[00:46 - 00:51] r01: Why do you think there were... What did you call it? Traps?
+[00:51 - 00:57] c09: I think they were traps because some of them are unassuming changes that suddenly break with the architecture.
+[00:58 - 01:01] r01: Okay, and what makes you say that it broke with the architecture?
+[01:03 - 01:13] c09: In relation to the fact that we have a clear separation, of among others application and infrastructure, it's this thing with reference directly between them, rather than through this, i.e. the semi-layer, domain, where we kind of use the two things.
+[01:13 - 01:20] r01: So it's like, so because you read it in the README or something? What about the rest of you?
+[01:22 - 02:36] c13: I had a bit of the same feeling. So now I can see that you have tried to follow an Onion architecture. So with some of the things... I also think in a business setting, if I had done this in the company, I would probably have approached it a bit differently. Also the thing about having to discuss with your teammates. Because there were some things where I didn't think it should have been in the layers they were. So I would have probably done a refactoring first. Or asked how we could solve this best. And then there was, for example, also this, if you had set up some Dependency Injection. So I could abstract away some details. For example, something in the application. I think that was the last task, I would have really liked to have put an interface in the application, and then implemented it in the infrastructure, for example. And I felt a bit like, okay, I have to do something now, and it's not that big of a system, etc., so I have to compromise a bit. So that's also a bit like, I'm making invisible introductions of technical debt, I would say. Because, obviously, I'm not going to break those boundaries, but I'm putting it in the wrong layer a bit.
+[02:37 - 02:48] r01: Yeah, okay. But how did you keep track, because you mentioned that you started to like... Well, you could see that you were breaking them. How did you see that?
+[02:48 - 02:52] c09: Uh, I sat down and started checking references.
+[02:52 - 02:53] r01: References? So imports?
+[02:53 - 03:06] c09: Yes, so I've used AI for that, where I've kind of fed it the context and the README. I've made a mandate for what architecture it should follow, unfortunately AI isn't that good at following architecture, but it was kind of made aware of, uh, that something is starting to happen with some architecture, so if that's the case, then I have to sit and read references.
+[03:07 - 03:11] r01: Okay, so when you say references, do you mean imports?
+[03:11 - 03:12] c09: Imports, yes.
+[03:12 - 03:35] c12: I think I started by doing things quite manually, also in that logging, that was definitely the one I spent the most time on. Where I could see without using any tools or anything. I can't just call in the wrong direction in relation to this onion structure. But I can't remember how to do it if I have to get around it.
+[03:36 - 03:37] r01: How could you possibly see that?
+[03:38 - 04:17] c12: I'm sitting with the README on one side of my screen and I can see, well, but I'm not allowed to have an import that way. Then I can see that I need some functionality, like a logger class I just made. Which I'm not allowed to call. And then I talked to an AI about how to get around it. And I ended up having a lot of doubts about how in-depth you should be, how clean it should be. So I ended up both changing some tests and making a fake logger thing to run the tests. And I couldn't even judge if it was too much. But.
+[04:17 - 04:25] c11: I thought those architectures were examples of how you could use your tool. So I was like, that's cool, and I didn't even think that we were supposed to keep it.
+[04:30 - 05:11] c10: I kind of have that approach where I'm like, even though it said you had to follow it, sometimes there were tasks that made it impossible. Like that logging thing, because you have to have it in infra. And then you have this class in domain that has to call it. And so my approach is... Damn! Allright, you're the ones paying me, fuck it. And then just go anyway. Because that... Is it stupid? Yes. Is this system... I don't know this system. I don't know, it might be possible. So if this is the task I'm given, then I also assume that it's already messy enough. If these are the tasks that belong to the system, then the system must have a corresponding level of messiness. So that's why I'm...
+[05:11 - 05:18] r01: So the description of the tasks weighs more than the description in the documentation?
+[05:19 - 05:21] c10: Yes, I would say that.
+[05:21 - 05:46] c13: I also think that was the thing with the fact that now there were different folders called domain, application and so on. What if they had been different projects, so that the compiler says that you don't need that. Or if you want to create a reference, then you at least actively think about it as a developer. Where the folder thing, especially with AI, it can just go fast when you go the wrong way, right?
+[05:49 - 06:36] c10: I also think that I don't know. It's also that if you get a task from someone around, that you have to do something. I don't know. It's a bit difficult, because in these tasks sometimes it's impossible. Then it's because I agree that I would talk about finding a way to restructure it, but when you have an hour and a half. It has to be done. Then there's a lot of context within it. Okay, I have time pressure, so it's probably some kind of deadline or busyness. There are times when it's such small tasks that have to be done. It's probably some consultant work. And then it becomes a lot just like that, it doesn't matter. It also comes from my own experience, where it's just fucking architecture at my old job went out the window, who gave a shit.
+[06:36 - 06:58] c12: It's funny because I've had exactly the opposite attitude, and it might also come from the fact that at my job, there are those who are very detail-oriented, because it's something that's very, very important to a lot of people. So the thing about, okay, if it says in the documents, I looked at it many times, like okay, what are the rules? What can I call what? Okay, like that. That was the first priority, so it didn't matter how far I got.
+[06:58 - 07:02] r01: So you see the README and documentation as rules?
+[07:02 - 07:07] c12: Yes, so it's non-negotiable. I could never think of not trying to follow that.
+[07:07 - 07:12] c10: It's funny, I'm doing something a little different. There are people who have tried to set up some rules at some point, and I can see that they've been thrown out the window.
+[07:14 - 07:18] c12: But I don't know if I did it right either, but it was more like it was important for me to try.
+[07:19 - 07:53] r01: All right, we're already talking a little bit about that, but let's try to see if we can stick to how you approach this dependency policy. Well, there was something about looking at some imports. How did you have it... did you have it in mind while you were developing?
+[07:41 - 07:50] c11: I thought that document with what you did was if you actually wanted to make real changes to your code. And there I was like, I'm not supposed to, I just have to do some tasks. And so I didn't take it that seriously.
+[07:54 - 07:55] r01: No, yeah.
+[07:56 - 08:03] c09: Yeah, I just fed it to a machine, then I was like, go nuts, and then at some point I was just like, I hate you, you've gone nuts.
+[08:07 - 08:35] c13: I actively think about it, so now I'm kind of familiar with onion and clean architecture, etc. And it's really something I think about in my work too. So it's a bit like, I want to say an occupational injury, I can't really help it. So I think it's so active that I thought about it, but I also feel like I actively made a choice to compromise with it sometimes.
+[08:35 - 08:36] r01: To follow the tasks or what?
+[08:36 - 08:55] c13: Yes, it's probably a bit like c10 said, I actually really would have done it like c12. So the thing about, you know, doing it properly. And I also caught myself thinking, this, if I should have done it properly. So I would have spent an hour and a half just on this. Well, but I knew, I'm going to have to, so you just have to... Compromise on some things.
+[08:56 - 09:00] r01: Would you rather it had been forced?
+[09:00 - 09:01] c10: What do you mean?
+[09:01 - 09:21] r01: So that, what is it called, that thing that you mentioned there, that project structure means that you can't have circular dependencies and stuff like that. Would you rather it was set up with project structure, and it was just hammered into your head that you can't do that?
+[09:21 - 09:50] c13: I think so, because now I work in a team. There are a lot of junior developers, and there are also a lot of seniors. Today there are almost 20 of us in that team. If one can abuse it, then you abuse it. So that's just the rule of thumb, so you should almost have an architecture that supports the changes you're working on, because it's going to come through, I feel like saying no, if you've made a bad decision. So I would prefer that.
+[09:51 - 10:23] c09: I would really like it to be like a compiler warnings thing. We started out with 4 compiler warnings, and what if there were 4 compiler warnings that said, you're breaking the architecture here, do you want to continue doing that, because sometimes it might be necessary, because architecture is not a one-to-one absolute truth either. Most of the time it is, but there are some examples where you have to break it a little bit, to support some other good ideas. So it would be really cool to have a build-in architecture analyzer.
+[10:24 - 10:53] c12: I don't know how relevant this is, but at my workplace, we use a very, very rigid, like, I don't know if it's a Solution error, or where these rules are, but it tells me that you shouldn't use this type of variable. Like this, I get a lot of warnings if I don't do it exactly as they want it. I think that works pretty well too. I don't know how at what level it works, but it's built into the C-Sharp program project.
+[10:57 - 11:29] c10: Something that fucked me up a bit was that infrastructure was deeper in... Sorry, application is deeper in than infrastructure was. I wouldn't normally do that. Because I'm like that... So in an architecture, because I'm fucking... For example, we were going to make a repository, where do you put that repository? You don't put it in domain, you put it in infrastructure. But application is deeper in the onion layer. Which is... I just tried to bring up some other projects, in BDSA, for example. That's not normal. That's fucking strange. At least that's not what I usually see.
+[11:31 - 11:55] c13: Yes, but that's just... Well, it's a funny architecture. You also have to catch it. And that's exactly the thing about it being clean. The thing about application being a use case for the business layer. And that thing about infrastructure kind of couples the implementation with this abstraction. So, that's what you can replace as you want. So it's that you have to use... You have to catch it.
+[11:56 - 12:21] c10: But the funny thing is, even though there's this infrastructure-application-domain. So in the other dependency files, infrastructure and application are on the same layer. They just don't point to each other. They just both point to domain, so there is double confusing or incorrect documentation. And that was also something that confirmed for me that this is a messy architecture system. It just doesn't fit. It's some legacy documentation that doesn't work.
+[12:21 - 12:22] c13: That's also true, you could do that too...
+[12:22 - 12:45] r01: What's it called, how did you check? I hear something about import statements. If you even adhered to the architecture. You've also mentioned it a little bit, but... Did you refer to the README a lot, so did you look back at it a few times?
+[12:46 - 12:51] c09: Yes, a few times, but no more than that. 1-2 times.
+[12:51 - 12:52] r01: 1-2 times.
+[12:52 - 12:55] c10: I mostly looked at that docs folder. Where there were 3 pictures in it.
+[12:55 - 12:58] c09: I looked at that one too, it was good.
+[12:58 - 13:03] r01: Will you do it normally? I mean at work? If it wasn't such a... newer project?
+[13:03 - 13:08] c09: We don't have that. No README, no architecture. Only vibes.
+[13:11 - 13:22] c10: At my old job we were fucked. There was nothing. So you know, whatever structure you made was more the structure that was there when you started. So I don't know.
+[13:23 - 13:35] c12: At my workplace there are a lot of protocols for everything, so I always have open on another screen, okay, next step in my to-do, of getting things into production. So I sit there all the time and look at it.
+[13:37 - 14:10] c10: It depends on the culture you're in. If I was at a workplace where I was told that remember the most important thing is that you keep these architectural things that are in the code in advance. Rather than the tasks you get from, you know, Karsten from the fourth floor, who has never opened a computer himself. Okay, fine. But if it's something like that, where these tasks are very strictly defined by the customer's IT consultants, they just have to be adhered to. And then, whatever documentation, it's just whatever. So that's how it is, so you do it.
+[14:11 - 14:16] r01: What would have made it easier, do you think, to adhere to the architecture? You're saying something about it being forced?
+[14:16 - 14:44] c13: Yes, exactly that thing about if you had it out in different projects. And then I also thought that you had introduced some Dependency Injection. So you saw... that, that, being able to say that we have the interface here in the application, then I can implement it in the infrastructure. Then it's certain that you...
+[14:44 - 14:47] r01: So you think that should be in the tasks, it's very task-specific.
+[14:47 - 15:07] c13: It was very task-specific, but still that about laying the foundation for it, so I just had to say, as scoped, boom boom, something or other. That's when I thought, it was one of those things where I was like, if I were going to sit down and do this for a company, I would say: Shouldn't we just start with this before I do this?
+[15:08 - 15:08] r01: Yes.
+[15:09 - 15:22] c12: Very low-practical in my experience, it is also easier to comply with rules if there are existing examples in the code. So the more established and streamlined your code base is, the more automatically you just copy that structure.
+[15:23 - 15:54] c10: I also think that for me, the thing about tasks being so tightly defined is that there is not much room for maneuver. This one, which should be a logger class in this folder, this file, which is in another folder. But it doesn't say that. Should call it here. So it's a lot of, well, okay, it doesn't say that... It's so tightly defined that the assumption of, okay, but then I have to move this around, and things like that disappears a bit. Because then it would probably be there. So it suddenly becomes obvious that it's just breaking the architecture.
+[15:55 - 16:08] c13: Yes, I've had that feeling too. And then I also wanted to move the small modules around, because then I'm like, no, I can't do that, I don't have time for that.
+[16:08 - 16:10] c10: But it's also that then it just becomes a bigger refactoring task.
+[16:10 - 16:11] c13: Yes, it does.
+[16:11 - 16:32] c10: Which I agree with, it should just be a, okay, the way you've set this up, these five tasks I've been given are impossible. With this, where there's such a thing. So either way I just wanted to ask, okay. Dear project manager, should we do this or this? Either do a refactoring first, or I should just flush everything down the toilet.
+[16:32 - 16:52] c09: I think it would have been easier for me if I had an overview of what the architecture is like right now between each commit. For example, this code I'm about to push now. What new dependencies am I introducing? Okay, now I can see that there's an arrow between application and infrastructure. Maybe we should look into that more closely. So, something like that, these tell-tale signs of, okay, something's broken here.
+[16:53 - 16:58] r01: So every time you commit, there's some kind of overview?
+[16:58 - 17:10] c09: Potentially. So where is it, this, this is your commit from today. You can see here, you've introduced three new dependencies between application and infrastructure. Fix them.
+[17:09 - 17:11] r01: So something like a warning again.
+[17:11 - 17:20] c12: Do we agree in C-sharp that if we were to create a dependency, an illegal dependency, it will always be an import line. You will always be able to see it that way, or are there other ways?
+[17:20 - 17:32] c10: Not necessarily. For example, what c13 was talking about was that instead of having everything in a project just like that, divide it into projects so you can't just say import this into the file.
+[17:32 - 17:37] c12: Well, yes, but if you have such an illegal dependency, you will be able to see it in your import.
+[17:37 - 17:38] c10: You won't be able to import.
+[17:38 - 17:45] c09: I actually think that you can refer to them specifically through namespaces, so that you don't import it, then you make a single reference to it once.
+[17:45 - 17:46] c12: Right, right, right.
+[17:46 - 17:55] r02: Technically, instead of saying using CoDepend.Application, you can just say where you need to use the method CoDepend.Application.UseCase.Run.
+[18:04 - 18:21] c13: I'm also thinking about that if you could get such a visual overview when you make a pull request, for example. Then you're like, ugh, okay. Because it almost has to be visualized for you, or so that you can become aware of it.
+[18:22 - 18:23] r01: Should there be some kind of alert?
+[18:23 - 18:34] c13: Yes, and I feel that when I've made a pull request, I'm a little more receptive to taking it in. Whereas I feel that when I commit, I'm sometimes a little in the flow. Yes.
+[18:34 - 18:40] c09: Yes, that would actually be the coolest place to be.
+[18:40 - 18:51] c10: I would also say that it's like this... Just in the PR that an automatic message comes up that says... Well, just a, I don't know if you can call it that, or just like checking, and just saying hey, you're no longer following the architecture. It's just a test that fails.
+[18:52 - 18:55] r01: Yeah, okay, so just a test like this...
+[18:55 - 19:00] c10: A test that just fails to say, you have introduced a dependency between these two things that does not follow the architecture.
+[19:00 - 19:11] c13: Yes, and I also think it makes sense in terms of having teammates who are going to review. They might also have a better insight into, okay, how can we do it in an even better way, than sometimes you yourself, right?
+[19:12 - 19:20] c11: I think most people don't want to sit and code review imports. Unless you see that changes have been made up there. Then you just go to the code a little faster.
+[19:20 - 19:43] c10: You could also show that, at least I feel that way, to a project manager. Try looking here. If I show you that it says using this, it doesn't mean anything to you. But if I show you in this PR, which you might have a little more understanding of, that there's a big red cross that says NO. Then you might say, okay let's rephrase it. Because otherwise I feel that if there aren't any checks like that, and it just says green all the way, then that's it, what's the problem?
+[19:46 - 19:52] c12: I totally agree that on a PR it's a really nice and convenient place to have that type of information.
+[19:54 - 19:59] c09: That's also where you can catch that this is a problem, because as soon as you get your PR in, you're cooked.
+[20:01 - 20:02] c13: Yeah, that doesn't happen.
+[20:02 - 20:15] r01: Don't you think it would be annoying that you've spent three hours on a task, and then you make a PR, and then you're told that you've now put logs in infrastructure?
+[20:15 - 20:19] c09: It could be PR with the possibility of a commit basis.
+[20:19 - 20:37] c11: So if you can just call something, if a PR probably just calls some kind of linter, or something like that, and you can just call it yourself. Before your code, it's just like, I know this linter is coming, let me run it myself first.
+[20:37 - 20:42] c12: Of course, it can also be before, it's more a question of something like that not being allowed to come in.
+[20:42 - 20:47] c11: This is the last time, and you are allowed to have the tool to do it before if you want.
+[20:47 - 20:58] c10: Also because, yes, it's annoying, but it should only happen once. You do it once, you're told you're not allowed to, and then you've learned. But all of this, it also depends on if you have a job that uses PRs.
+[20:59 - 21:05] c09: What if we just commit directly to main?
+[21:05 - 21:06] c11: What if you don't have main?
+[21:06 - 21:07] c09: Master?
+[21:08 - 21:12] c11: What if the branching strategy is that branches should live longer than two years?
+[21:13 - 21:15] c10: What if there is no branching strategy?
+[21:16 - 21:16] c11: Yes.
+[21:17 - 21:18] c13: I can't even think that far ahead.
+[21:19 - 21:20] c09: Shoot to prod!
+[21:20 - 21:24] c12: I'm getting real chills. I'm having nightmares tonight.
+[21:25 - 21:34] c10: I'd like to point out that I was the first person at my job to do a PR. In its entire history, and this job dates back to 2006.
+[21:36 - 21:38] r01: Well. Do you have any other comments here on the fall rope?
+[21:38 - 21:48] c12: Well, in my experience, it's really nice with visual things like that that are generated. Well, compared to just a lot of text, but maybe just shimmer.
+[21:48 - 21:56] c11: And if it's text, then emojis in the text. Good big, yay, green. Or red, bup.
+[21:56 - 21:57] c09: Some visual cues.
+[21:57 - 22:00] r01: So not just warnings. And if warnings, then with emojis.
+[22:00 - 22:06] c11: Yes, then something or other, or you can color a warning like that red, like that.
+[22:06 - 22:07] c10: Did you use dotnet test or dotnet run?
+[22:07 - 22:08] c12: Yes, you should.
+[22:08 - 22:18] c09: Quite often. Just sitting there fucking firing them off. At one point it started throwing a lot of exceptions, but all the tests still passed, and it could still run and run and compile, so it's probably fine.
+[22:20 - 22:26] c12: Every single task, before I created it, and after I created it and ran it, I ran all three commands we had been given.
+[22:27 - 22:58] c10: I honestly think some of the tasks were so simple that I forgot to do it. I'm going to do this one, it returns null. If it's null, which it is, then it does what it used to do. Maybe that's just something I assumed it compiled. But I think it was the four with dotnet test... I was just about to make a pull request, wait a minute, go back, dotnet test, everything fails. All right. Okay. I made two periods in a row.
+[22:58 - 23:10] r01: All right, well then we'll stop... Is it something else? Then we'll stop recording.
